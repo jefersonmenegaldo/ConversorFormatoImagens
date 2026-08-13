@@ -1,0 +1,24 @@
+# Build output
+/Win32/
+/Win64/
+*.dcu
+*.exe
+*.res
+*.rsm
+*.map
+*.drc
+*.dres
+
+# Delphi IDE / local user files
+__history/
+__recovery/
+*.dproj.local
+*.identcache
+*.projdata
+*.tvsconfig
+*.stat
+*.local
+
+# OS
+Thumbs.db
+.DS_Store
