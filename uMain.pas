@@ -78,7 +78,7 @@ begin
   UpdateDestControlsEnabled;
 
   OpenDialog1.Filter :=
-    'Imagens (*.bmp;*.jpg;*.jpeg;*.png;*.gif;*.webp)|*.bmp;*.jpg;*.jpeg;*.png;*.gif;*.webp|Todos os arquivos (*.*)|*.*';
+    'Imagens (*.bmp;*.jpg;*.jpeg;*.png;*.gif;*.webp;*.heic;*.heif)|*.bmp;*.jpg;*.jpeg;*.png;*.gif;*.webp;*.heic;*.heif|Todos os arquivos (*.*)|*.*';
   OpenDialog1.Options := OpenDialog1.Options + [ofAllowMultiSelect, ofFileMustExist];
 
   lblStatus.Caption := '';

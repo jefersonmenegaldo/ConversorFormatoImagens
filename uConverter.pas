@@ -4,10 +4,10 @@ interface
 
 uses
   System.SysUtils, System.IOUtils, Vcl.Graphics, Vcl.Imaging.jpeg,
-  Vcl.Imaging.pngimage, Vcl.Imaging.GIFImg, uWebP;
+  Vcl.Imaging.pngimage, Vcl.Imaging.GIFImg, uWebP, uHeic;
 
 type
-  TImageFormat = (ifUnknown, ifBMP, ifJPG, ifPNG, ifGIF, ifWEBP);
+  TImageFormat = (ifUnknown, ifBMP, ifJPG, ifPNG, ifGIF, ifWEBP, ifHEIC);
 
   EConvertError = class(Exception);
 
@@ -32,6 +32,7 @@ begin
   else if (Ext = '.png') then Result := ifPNG
   else if (Ext = '.gif') then Result := ifGIF
   else if (Ext = '.webp') then Result := ifWEBP
+  else if (Ext = '.heic') or (Ext = '.heif') then Result := ifHEIC
   else Result := ifUnknown;
 end;
 
@@ -43,6 +44,7 @@ begin
     ifPNG: Result := '.png';
     ifGIF: Result := '.gif';
     ifWEBP: Result := '.webp';
+    ifHEIC: Result := '.heic';
   else
     Result := '';
   end;
@@ -56,6 +58,7 @@ begin
     ifPNG: Result := 'PNG';
     ifGIF: Result := 'GIF';
     ifWEBP: Result := 'WEBP';
+    ifHEIC: Result := 'HEIC';
   else
     Result := 'Desconhecido';
   end;
@@ -73,6 +76,8 @@ begin
   case Fmt of
     ifWEBP:
       LoadWebPToBitmap(FileName, Bmp);
+    ifHEIC:
+      LoadHeicToBitmap(FileName, Bmp);
     ifBMP, ifJPG, ifPNG, ifGIF:
       begin
         Pic := TPicture.Create;

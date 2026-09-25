@@ -134,6 +134,7 @@
         </DCCReference>
         <DCCReference Include="uConverter.pas"/>
         <DCCReference Include="uWebP.pas"/>
+        <DCCReference Include="uHeic.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
